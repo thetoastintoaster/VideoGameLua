@@ -1,0 +1,188 @@
+function init(self)	
+	msg.post(".", "start_main_menu")
+
+	self.state = "MAIN_MENU"			
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_main_menu") then
+		if self.state ~= "MAIN_MENU" then
+
+			if self.state == "GAME1_RUNNING" then
+				msg.post("#level1_proxy", "unload")
+			end
+
+			if self.state == "GAME2_RUNNING" then
+				msg.post("#level2_proxy", "unload")
+			end
+
+			if self.state == "GAME3_RUNNING" then
+				msg.post("#level3_proxy", "unload")
+			end
+
+			if self.state == "GAME4_RUNNING" then
+				msg.post("#level4_proxy", "unload")
+			end
+
+			if self.state == "GAME5_RUNNING" then
+				msg.post("#level5_proxy", "unload")
+			end
+
+			if self.state == "GAME6_RUNNING" then
+				msg.post("#level6_proxy", "unload")
+			end
+
+			if self.state == "GAME7_RUNNING" then
+				msg.post("#level7_proxy", "unload")
+			end
+
+			if self.state == "GAME8_RUNNING" then
+				msg.post("#level8_proxy", "unload")
+			end
+
+			if self.state == "GAME9_RUNNING" then
+				msg.post("#level9_proxy", "unload")
+			end
+
+			if self.state == "GAME10_RUNNING" then
+				msg.post("#level10_proxy", "unload")
+			end
+			if self.state == "GAME11_RUNNING" then
+				msg.post("#level11_proxy", "unload")
+			end
+			if self.state == "GAME12_RUNNING" then
+				msg.post("#level12_proxy", "unload")
+			end
+			if self.state == "GAME13_RUNNING" then
+				msg.post("#level13_proxy", "unload")
+			end
+		end
+
+		msg.post("#main_menu", "enable")
+		self.state = "MAIN_MENU"
+
+		
+	elseif message_id == hash("start_level1") then
+		msg.post("#level1_proxy", "load")
+		msg.post("#main_menu", "disable")
+
+	elseif message_id == hash("start_level2") then
+		msg.post("#level2_proxy", "load")
+		msg.post("#main_menu", "disable")	
+
+	elseif message_id == hash("start_level3") then
+		msg.post("#level3_proxy", "load")
+		msg.post("#main_menu", "disable")	
+
+	elseif message_id == hash("start_level4") then
+		msg.post("#level4_proxy", "load")
+		msg.post("#main_menu", "disable")	
+
+	elseif message_id == hash("start_level5") then
+		msg.post("#level5_proxy", "load")
+		msg.post("#main_menu", "disable")	
+		
+	elseif message_id == hash("start_level6") then
+		msg.post("#level6_proxy", "load")
+		msg.post("#main_menu", "disable")	
+		
+	elseif message_id == hash("start_level7") then
+		msg.post("#level7_proxy", "load")
+		msg.post("#main_menu", "disable")	
+
+	elseif message_id == hash("start_level8") then
+		msg.post("#level8_proxy", "load")
+		msg.post("#main_menu", "disable")	
+
+	elseif message_id == hash("start_level9") then
+		msg.post("#level9_proxy", "load")
+		msg.post("#main_menu", "disable")	
+
+	elseif message_id == hash("start_level10") then
+		msg.post("#level10_proxy", "load")
+		msg.post("#main_menu", "disable")
+		
+	elseif message_id == hash("start_level11") then
+		msg.post("#level11_proxy", "load")
+		msg.post("#main_menu", "disable")
+		
+	elseif message_id == hash("start_level12") then
+		msg.post("#level12_proxy", "load")
+		msg.post("#main_menu", "disable")
+		msg.post("@system:", "exit", {code = 0})
+		
+	elseif message_id == hash("start_level13") then
+		msg.post("#level13_proxy", "load")
+		msg.post("#main_menu", "disable")
+		
+
+
+
+		
+	elseif message_id == hash("proxy_loaded") then
+		if sender == msg.url("#level1_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME1_RUNNING"
+		end
+
+		if sender == msg.url("#level2_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME2_RUNNING"
+		end
+
+		if sender == msg.url("#level3_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME3_RUNNING"
+		end
+
+		if sender == msg.url("#level4_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME4_RUNNING"
+		end
+
+		if sender == msg.url("#level5_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME5_RUNNING"
+		end
+
+		if sender == msg.url("#level6_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME6_RUNNING"
+		end
+
+		if sender == msg.url("#level7_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME7_RUNNING"
+		end
+
+		if sender == msg.url("#level8_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME8_RUNNING"
+		end
+
+		if sender == msg.url("#level9_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME9_RUNNING"
+		end
+
+		if sender == msg.url("#level10_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME10_RUNNING"
+		end
+
+		if sender == msg.url("#level11_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME11_RUNNING"
+		end
+
+		if sender == msg.url("#level12_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME12_RUNNING"
+		end
+
+		if sender == msg.url("#level13_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME13_RUNNING"
+		end	
+	end    
+end

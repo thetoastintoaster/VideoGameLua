@@ -1,0 +1,37 @@
+-- ------------------------------------------------------------------------------------------
+-- Initialization 
+-- ------------------------------------------------------------------------------------------
+function init(self)	
+
+	msg.post(".", "begin_game")
+
+
+	self.state = "begin"			
+end
+
+function on_message(self, message_id, message, sender)
+
+
+	if message_id == hash("begin_game") then
+		if self.state ~= "begin" then
+
+			if self.state == "GAME1_RUNNING" then
+				msg.post("#begin_proxy", "unload")
+			end
+
+		end
+
+
+	elseif message_id == hash("begin_game") then
+		msg.post("#begin_proxy", "load")
+
+
+	elseif message_id == hash("begin_game") then
+		if sender == msg.url("#begin_proxy") then
+			msg.post(sender, "enable")
+			self.state = "GAME1_RUNNING"
+		end
+
+
+	end    
+end

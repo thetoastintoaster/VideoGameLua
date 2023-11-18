@@ -1,0 +1,2 @@
+		msg.post("main:/main#main", "start_main_menu")
+		msg.post("#", "enable")
